@@ -1,11 +1,15 @@
 #include "mainwindow.h"
-#include <QApplication>
+#include <webbrowserapp.h>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    WebBrowserApp a(argc,argv);
+
+    if (!a.isTheOnlyBrowser())
+        return 0;
+
+    a.newQtWebBrowseWin();
+
 
     return a.exec();
 }
